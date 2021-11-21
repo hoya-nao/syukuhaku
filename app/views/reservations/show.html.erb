@@ -1,0 +1,42 @@
+<header class = "header">
+
+<div class = "header_c">
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" class = "header_b"></a>
+</div>
+<div class = "header_a">
+<a> <img src=<%= current_user.image %> class = "icon_image2 header_c header_d"></a>
+<a class = "text30"> <%=current_user.name %></a>
+</div>
+</header>
+
+<body class = "top-main">
+<div class = "sub">
+<div class = "migi hidari15">
+<a class = "hidari15"><%= link_to "ルーム登録" ,:new_post %></a>
+<a class = "hidari15"><%= link_to "登録済みルーム一覧", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/posts/roomshow" %></a>
+<a class = "hidari15"><%= link_to "予約済みルーム一覧", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/reservations/index" %></a>
+<a class = "hidari15"><%= link_to "ユーザー情報", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/users/show" %></a>
+<a class = "hidari15"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+</div>
+</div>
+
+<h2 class = "midasi2">予約しました</h2>
+<br>
+<div class = "sub3 w130">
+<h3>予約した部屋</h3>
+<p><%= @reservation.roomname %></p>
+<h3>開始日</h3>
+<p><%= @reservation.hajime.strftime('%Y年%m月%d日') %></p>
+<h3>終了日</h3>
+<p><%= @reservation.owari.strftime('%Y年%m月%d日') %></p>
+<h3>料金</h3>
+<p>￥<%= @reservation.goukei %></p>
+<br>
+<button type="submit"><%= link_to "トップページに戻る", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/" %></button>
+</div>
+</body>
+
+<footer class = "foooter">
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

@@ -1,0 +1,44 @@
+<header>
+<div>
+<div>
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+</a>
+</div>
+<div>
+<a> <%= link_to "ログイン", "users/sign_in" %>
+</a>
+<a> <%= link_to "登録する", "users/sign_up" %>
+</a>
+
+<h2>登録済みルーム一覧</h2>
+
+<thead>
+    <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+    </tr>
+</thead>
+<br />
+
+<tbody class="">
+        <% @users.each do |user| %>
+        
+          <tr>
+            <td><img src= <%= user.roomgazou %> class = "room_image"></td>
+            <td><%= user.roomname %></td>
+            <td><%= user.roomdate %></td>
+            <td><%= user.kane %></td>
+            <td><%= user.created_at %></td>
+            
+            <td> </td>
+          </tr>
+        <% end %>
+</tbody>
+
+<footer>
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

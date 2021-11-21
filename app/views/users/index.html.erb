@@ -1,0 +1,44 @@
+<header class = "header">
+
+<div class = "header_c">
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" class = "header_b"></a>
+</div>
+<div class = "header_a">
+<a> <img src=<%= current_user.image %> class = "icon_image2 header_c header_d"></a>
+<a class = "text30"> <%=current_user.name %></a>
+</div>
+</header>
+
+<div class = "sub">
+<div class = "migi hidari15">
+<a class = "hidari15"><%= link_to "ルーム登録" ,:new_post %></a>
+<a class = "hidari15"><%= link_to "登録済みルーム一覧", "posts/roomshow" %></a>
+<a class = "hidari15"><%= link_to "予約済みルーム一覧", "reservations/index" %></a>
+<a class = "hidari15"><%= link_to "ユーザー情報", "users/show" %></a>
+<a class = "hidari15"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+</div>
+</div>
+<body class = "top-main">
+
+<h1 class = "midasi">宿泊施設を貸したい人と借りたい人の架け橋。</h1>
+
+<div class = "sub2 w320">
+<h2 class = "">思い出を作ろう。</h2>
+<a class = ""><%= form_tag({controller:"posts",action:"index"}, method: :get) do %></a>
+<a class = "">エ　リ　ア：</a>
+<a class = ""><%= text_field_tag :juusyo %></a>
+<a class = ""><%= submit_tag '検索' %></a>
+<% end %>
+<a class = ""><%= form_tag({controller:"posts",action:"index"}, method: :get) do %></a>
+<a class = "">キーワード：</a>
+<a class = ""><%= text_field_tag :keyword %></a>
+<a class = ""><%= submit_tag '検索' %>
+<% end %>
+</div>
+
+</body>
+
+<footer class = "foooter">
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

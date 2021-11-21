@@ -1,0 +1,49 @@
+<header class = "header">
+
+<div class = "header_c">
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" class = "header_b"></a>
+</div>
+<div class = "header_a">
+<a class = "text30">ログインしてください</a>
+</div>
+</header>
+
+<body class = "top-main">
+
+<h1 class = "midasi">Potepan Shareは、宿泊施設を貸したい人と借りたい人を繋げるサービスです。</h1>
+
+<div class = "sub2 w180">
+<h2>ログイン</h2>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="field">
+<a class = "">メ ー ル ア ド レ ス:</a><br>
+<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
+<div class="field">
+<a class = "">パ　ス　ワ　ー　ド:</a><br>
+<%= f.password_field :password, autocomplete: "current-password" %>
+</div>
+
+<% if devise_mapping.rememberable? %>
+<div class="field">
+<%= f.check_box :remember_me %>
+<%= f.label :remember_me %>
+</div>
+<% end %>
+<div class="actions">
+<%= f.submit "ログイン" %>
+</div>
+<% end %>
+<br>
+<div>
+<p>未登録の方はこちらへ</p>
+<button type="submit"> <%= link_to "登録する", "sign_up" %></button>
+</div>
+</div>
+</body>
+
+<footer class = "foooter">
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

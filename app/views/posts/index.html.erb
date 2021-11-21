@@ -1,0 +1,63 @@
+<header class = "header">
+
+<div class = "header_c">
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" class = "header_b"></a>
+</div>
+<div class = "header_a">
+<a> <img src=<%= current_user.image %> class = "icon_image2 header_c header_d"></a>
+<a class = "text30"> <%=current_user.name %></a>
+</div>
+</header>
+
+<div class = "sub">
+<div class = "migi hidari15">
+<a class = "hidari15"><%= link_to "ルーム登録" ,:new_post %></a>
+<a class = "hidari15"><%= link_to "登録済みルーム一覧", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/posts/roomshow" %></a>
+<a class = "hidari15"><%= link_to "予約済みルーム一覧", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/reservations/index" %></a>
+<a class = "hidari15"><%= link_to "ユーザー情報", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/users/show" %></a>
+<a class = "hidari15"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+</div>
+</div>
+
+<body class = "main">
+<div class = "sub3">
+
+<h2>検索結果：<%= @posts.count %>件</h2>
+<table class="">
+<thead>
+<tr>
+<th>ルーム画像</th>
+<th>ルーム名</th>
+<th>ルーム紹介</th>
+<th>料金</th>
+<th>作成日</th>
+<th>ユーザーID</th>
+<th>予約</th>
+</tr>
+</thead>
+<br>
+
+<tbody class="">
+<% @posts.each do |post| %>
+<tr>
+<td><img src= <%= post.image %> class = "room_image"></td>
+<td><%= link_to post.roomname, post %></td>
+<td><%= post.roomdata %></td>
+<td>￥<%= post.kane %></td>
+<td><%= post.created_at.strftime('%Y年%m月%d日') %></td>
+<td><%= post.user_id %></td>
+<td><button type="submit"><%= link_to "予約する", post %></button></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+</div>
+<br>
+<h4 class = "midasi4"><%= link_to "戻る", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/" %></h4>
+</body>
+
+<footer class = "foooter2">
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

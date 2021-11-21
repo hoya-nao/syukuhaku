@@ -1,0 +1,88 @@
+<header class = "header">
+
+<div class = "header_c">
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" class = "header_b"></a>
+</div>
+<div class = "header_a">
+<a> <img src=<%= current_user.image %> class = "icon_image2 header_c header_d"></a>
+<a class = "text30"> <%=current_user.name %></a>
+</div>
+</header>
+
+<div class = "sub">
+<div class = "migi hidari15">
+<a class = "hidari15"><%= link_to "ルーム登録" ,:new_post %></a>
+<a class = "hidari15"><%= link_to "登録済みルーム一覧", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/posts/roomshow" %></a>
+<a class = "hidari15"><%= link_to "予約済みルーム一覧", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/reservations/index" %></a>
+<a class = "hidari15"><%= link_to "ユーザー情報", "https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/users/show" %></a>
+<a class = "hidari15"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+</div>
+</div>
+
+<body class = "top-main">
+<h2 class = "midasi2">アカウント編集</h2>
+<div class = "sub3 w800">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render "users/shared/error_messages", resource: resource %>
+
+<div class="left">
+<div class="field">
+<em>アイコン</em><br>
+<%= f.file_field :image , autofocus: true %>
+</div>
+  
+<div class="field">
+<em>名前</em><br>
+<%= f.text_field :name, autofocus: true, autocomplete: "名前" %>
+</div>
+
+<div class="field">
+<a>自己紹介</a><br>
+<%= f.text_area :profile, autofocus: true, autocomplete: "自己紹介" %>
+</div>
+  
+<div class="field">
+<%= f.label :email %><br>
+<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+<% end %>
+</div>
+
+<div>
+<div class="field">
+<a>パスワード（６文字以上　※変更しない場合は、空白のままにします)</a>
+<br>
+<%= f.password_field :password, autocomplete: "new-password" %>
+<% if @minimum_password_length %>
+<br>
+<% end %>
+</div>
+
+<div class="field">
+<%= f.label :password_confirmation %><br>
+<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+</div>
+
+<div class="field">
+<%= f.label :current_password %> <a>(変更するには、現在のパスワードが必要です)</a>
+<br>
+<%= f.password_field :current_password, autocomplete: "current-password" %>
+</div>
+<br>
+<div class="actions">
+<%= f.submit "更新する" %>
+</div>
+<% end %>
+
+<button type="submit"> <%= link_to "前に戻る", :back %></button>
+</div>
+</div>
+
+</body>
+<footer class = "foooter">
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

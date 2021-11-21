@@ -1,0 +1,55 @@
+<header>
+<div>
+<div>
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+</a>
+</div>
+<div>
+<a>ログイン
+</a>
+<a>登録する
+</a>
+</div>
+</div>
+
+<h2>ルーム登録</h2>
+
+  <%= form_with model:@user do |f| %>
+
+  <div class="field">
+    <em>ルーム名</em><br />
+    <%= f.text_field :roomname %>
+  </div>
+    <br />
+
+  <div class="field">
+    <a>ルーム紹介</a><br />
+    <%= f.text_area :roomdate %>
+  </div>
+  
+  <div class="field">
+    <a>料金</a><br />
+    <%= f.number_field :kane %>
+  </div>
+
+  <div class="field">
+    <em>住所</em><br />
+    <%= f.text_field :juusyo %>
+  </div>
+
+  <div class="field">
+  <em>ルーム画像</em><br/>
+  <%= f.file_field :roomgazou  %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+
+<button type="submit"><%= link_to "前に戻る", :back %></button>
+
+<footer>
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

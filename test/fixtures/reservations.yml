@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  post_id: 1
+  hiyou: 1
+  nanmei: 1
+  goukei: 1
+  hajime: 2021-11-09 14:28:38
+  owari: 2021-11-09 14:28:38
+
+two:
+  user_id: 1
+  post_id: 1
+  hiyou: 1
+  nanmei: 1
+  goukei: 1
+  hajime: 2021-11-09 14:28:38
+  owari: 2021-11-09 14:28:38

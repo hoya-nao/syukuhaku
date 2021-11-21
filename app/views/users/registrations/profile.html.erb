@@ -1,0 +1,40 @@
+<header>
+<div>
+<div>
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+</a>
+</div>
+<div>
+<a>ログイン</a>
+<a>登録する</a>
+</div>
+</div>
+</header>
+
+<h2>アカウント編集</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render "users/shared/error_messages", resource: resource %>
+
+<div class="field">
+<%= f.label :name %><br>
+<%= f.text_field :name, autofocus: true, autocomplete: "名前" %>
+</div>
+<br>
+
+<div class="field">
+<%= f.label :profile %><br>
+<%= f.text_area :profile, autofocus: true, autocomplete: "自己紹介" %>
+</div>
+
+<div class="actions">
+<%= f.submit "更新" %>
+</div>
+<% end %>
+
+<%= link_to "戻る", :back %>
+
+<footer>
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

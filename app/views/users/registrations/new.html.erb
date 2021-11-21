@@ -1,0 +1,60 @@
+<header class = "header">
+
+<div class = "header_c">
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" class = "header_b"></a>
+</div>
+<div class = "header_a">
+<a class = "text30">はじめまして</a>
+</div>
+</header>
+
+<body class = "top-main">
+
+<h2 class = "midasi2">新しいアカウントを作成</h2>
+
+<div class = "sub3 w230">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= render "users/shared/error_messages", resource: resource %>
+<div class="field">
+<em>アイコン設定</em><br>
+<%= f.file_field :image %>
+</div>
+  
+<div class="field">
+<%= f.text_field :name, placeholder: "名前" %>
+</div>
+
+<div class="field">
+<%= f.email_field :email, placeholder: "メールアドレス" %>
+</div>
+
+<div class="field">
+<%= f.text_area :profile, placeholder: "自己紹介" %>
+</div>
+
+<div class="field">
+<% if @minimum_password_length %>
+<% end %>
+
+<%= f.password_field :password, placeholder: "パスワード（６文字以上）" %>
+</div>
+
+<div class="field">
+
+<%= f.password_field :password_confirmation, placeholder: "確認用パスワード" %>
+</div>
+
+<div class="actions">
+<%= f.submit "登録する" %>
+</div>
+<% end %>
+<br>
+<button type="submit"> <%= link_to "ログインに戻る", "sign_in" %></button>
+</div>
+
+</body>
+
+<footer class = "foooter">
+<p>© 2021 POTEPAN.INC.</p>
+</footer>

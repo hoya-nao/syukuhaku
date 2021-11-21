@@ -1,0 +1,57 @@
+<header>
+<div>
+<div>
+<a href="https://15ac699d368142e7afabbdb0da2f9483.vfs.cloud9.us-east-2.amazonaws.com/">
+<img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+</a>
+</div>
+<div>
+<a> <%= link_to "ログイン", "users/sign_in" %>
+</a>
+<a> <%= link_to "登録する", "users/sign_up" %>
+</a>
+
+<h2>予約内容確認</h2>
+<h1>確認画面</h1>
+<div>
+
+</div>
+<h3>￥<%= @post.kane %>/ 日</h3>
+<div>
+<a>開始日</a><br>
+<%= @post.hajime.strftime('%Y年%m月%d日') %>
+<br />
+<a>終了日</a><br>
+<%= @post.owari.strftime('%Y年%m月%d日') %>
+<br />
+<a>使用日数</a><br>
+<%= (@post.owari - @post.hajime).to_i/1.days %> 日
+<br />
+<a>人数</a><br>
+<a><%= @post.nanmei %>名</a><br>
+<a>合計金額</a><br />
+<a>￥<%= @post.nanmei*@post.kane*((@post.owari - @post.hajime).to_i/1.days) %> 
+</a>
+<br>
+ 
+<%= form_with model: @reservation, url: {action: 'complete'}  do |f| %>
+<%= f.hidden_field :roomname, value: @post.roomname %>
+<%= f.hidden_field :roomdata, value: @post.roomdata %>
+<%= f.hidden_field :goukei, value: @post.nanmei*@post.kane*((@post.owari - @post.hajime).to_i/1.days) %>
+<%= f.hidden_field :hajime, value: @post.hajime %>
+<%= f.hidden_field :owari, value: @post.owari %>
+ 
+<div class="actions">
+<p><%= link_to "戻る", :back %></p>
+</div>
+<div class="actions">
+<%= f.submit '予約する' %>
+</div>
+<% end %>
+
+</div>
+
+</div>
+<footer>
+<p>© 2021 POTEPAN.INC.</p>
+</footer>
